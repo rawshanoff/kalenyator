@@ -1,0 +1,8 @@
+# Скопируйте в github.properties и укажите свой репозиторий на GitHub.
+# Файл github.properties в .gitignore — не коммитьте личные настройки.
+#
+# cp github.properties.example github.properties   (Linux/macOS)
+# copy github.properties.example github.properties (Windows)
+
+github.owner=rawshanoff
+github.repo=kalenyator

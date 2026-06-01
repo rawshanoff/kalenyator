@@ -1,0 +1,21 @@
+# Android / Gradle
+.gradle/
+build/
+android/.gradle/
+android/local.properties
+android/app/build/
+*.apk
+*.aab
+*.jks
+*.keystore
+
+# IDE
+.idea/
+*.iml
+
+# Локальная ссылка на GitHub (owner/repo)
+github.properties
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Kalenyator</string>
+
+    <string name="nav_calculator">Kalkulyator</string>
+    <string name="nav_calendar">Taqvim</string>
+    <string name="nav_weather">Ob-havo</string>
+    <string name="nav_family">Oila</string>
+    <string name="nav_settings">Sozlamalar</string>
+
+    <string name="calc_title">Kalkulyator</string>
+    <string name="calc_subtitle">Tentako · tabassum bilan hisoblang</string>
+    <string name="family_day">Kun</string>
+    <string name="family_month">Oy</string>
+    <string name="calc_error">Xato</string>
+    <string name="calc_clear">C</string>
+    <string name="calc_delete">⌫</string>
+    <string name="calc_equals">=</string>
+
+    <string name="cal_today">Bugun %1$s</string>
+    <string name="cal_prev">Orqaga</string>
+    <string name="cal_next">Oldinga</string>
+    <string name="cal_events_today">Bugungi voqealar</string>
+    <string name="cal_no_events">Bu kunda voqea yo\'q</string>
+    <string name="cal_select_day">Kunni tanlang</string>
+
+    <string name="weather_title">Ob-havo</string>
+    <string name="weather_loading">Yuklanmoqda…</string>
+    <string name="weather_error">Ob-havoni yuklab bo\'lmadi</string>
+    <string name="weather_retry">Qayta urinish</string>
+    <string name="weather_humidity">Namlik</string>
+    <string name="weather_wind">Shamol</string>
+    <string name="weather_updated">Yangilandi</string>
+    <string name="weather_add_city">Shahar qo\'shish</string>
+    <string name="weather_add_hint">Shahar nomini kiriting (kamida 2 harf) va ro\'yxatdan tanlang. Bir nechta shahar qo\'shish mumkin.</string>
+    <string name="weather_remove_city">Shaharni o\'chirish</string>
+
+    <string name="family_title">Oila sanalari</string>
+    <string name="family_add">Qo\'shish</string>
+    <string name="family_empty">Hali oila sanalari yo\'q.\nTug\'ilgan kun yoki yubiley qo\'shing!</string>
+    <string name="family_edit">Tahrirlash</string>
+    <string name="family_delete">O\'chirish</string>
+    <string name="family_save">Saqlash</string>
+    <string name="family_cancel">Bekor qilish</string>
+    <string name="family_name">Ism / nom</string>
+    <string name="family_note">Eslatma (ixtiyoriy)</string>
+    <string name="family_type">Turi</string>
+    <string name="family_type_birthday">Tug\'ilgan kun</string>
+    <string name="family_type_anniversary">Yubiley</string>
+    <string name="family_type_other">Boshqa</string>
+    <string name="family_year_optional">Yil (ixtiyoriy)</string>
+    <string name="family_confirm_delete">«%1$s» o\'chirilsinmi?</string>
+
+    <string name="settings_title">Sozlamalar</string>
+    <string name="settings_language">Til</string>
+    <string name="settings_language_ru">Русский</string>
+    <string name="settings_language_uz">Oʻzbekcha</string>
+    <string name="settings_region">Bayramlar mintaqasi</string>
+    <string name="settings_region_uz">O\'zbekiston</string>
+    <string name="settings_region_ru">Rossiya</string>
+    <string name="settings_region_both">Ikkala mintaqa</string>
+    <string name="settings_theme">Mavzu</string>
+    <string name="settings_theme_system">Tizim bo\'yicha</string>
+    <string name="settings_theme_light">Yorug\'</string>
+    <string name="settings_theme_dark">Qorong\'u</string>
+    <string name="settings_reminders">Eslatmalar</string>
+    <string name="settings_reminders_enable">Oila sanalari haqida xabarnomalar</string>
+    <string name="settings_reminders_hint">Tug\'ilgan kun yoki yubileydan N kun oldin push</string>
+    <string name="settings_reminders_days_label">Necha kun oldin eslatilsin?</string>
+    <string name="settings_reminders_days_option">%1$d kun</string>
+    <string name="settings_reminders_widget_hint">Vidjetlar: uzoq bosish → Vidjetlar → Kalenyator</string>
+    <string name="settings_reminders_on_day">Voqea kunida eslatma</string>
+    <string name="settings_reminders_time_label">Xabarnoma vaqti</string>
+    <string name="settings_reminders_time_option">%1$d:00</string>
+    <string name="settings_visual_theme">Dizayn uslubi</string>
+    <string name="theme_tentako">Tentako (pushti)</string>
+    <string name="theme_space">Koinot</string>
+    <string name="theme_minimal">Minimal</string>
+
+    <string name="reminder_channel_name">Oila sanalari</string>
+    <string name="reminder_channel_desc">Tug\'ilgan kun va yubiley eslatmalari</string>
+    <string name="reminder_notification_title">%1$s %2$s</string>
+    <string name="reminder_notification_birthday">%1$d kundan keyin tug\'ilgan kun — tabriklashni unutmang!</string>
+    <string name="reminder_notification_anniversary">%1$d kundan keyin yubiley — tayyorgarlik vaqti!</string>
+    <string name="reminder_notification_other">%1$d kundan keyin muhim oila sanasi!</string>
+    <string name="reminder_notification_today">Bugun voqea: %1$s — yaqinlaringizni tabriklang!</string>
+
+    <string name="widget_title">Kalenyator · yaqin sana</string>
+    <string name="widget_description">Yaqin tug\'ilgan kun yoki yubileygacha hisoblagich</string>
+    <string name="widget_empty">Oila sanalarini qo\'shing</string>
+
+    <string name="settings_sync">Sinxronlash</string>
+    <string name="settings_sync_export">Sanalarni eksport (JSON)</string>
+    <string name="settings_sync_import">Sanalarni import</string>
+    <string name="settings_sync_hint">Faylni oilaga Telegram orqali yuboring — boshqa telefonda «Import» bosing.</string>
+    <string name="settings_sync_success_export">Fayl yuborishga tayyor</string>
+    <string name="settings_sync_success_import">Import qilindi: %1$d</string>
+    <string name="settings_sync_error">Sinxronlash xatosi</string>
+    <string name="settings_sync_qr_show">QR-kodni ko\'rsatish</string>
+    <string name="settings_sync_qr_scan">QR skanerlash</string>
+    <string name="settings_sync_qr_hint">QR orqali sanalarni uzating. Rasmlar QRda yo\'q.</string>
+    <string name="settings_sync_qr_scan_prompt">Oila sanalari QR kodiga kamerani yo\'naltiring</string>
+
+    <string name="weather_widget_title">Kalenyator · ob-havo</string>
+    <string name="weather_widget_description">Mintaqa ob-havosi</string>
+
+    <string name="family_photo_add">Rasm</string>
+    <string name="family_photo_remove">O\'chirish</string>
+    <string name="family_countdown_title">«%1$s» gacha qoldi</string>
+    <string name="family_countdown_format">%1$d kun %2$d soat %3$d daq %4$d son</string>
+
+    <string name="settings_about">Ilova haqida</string>
+    <string name="settings_about_text">Kalenyator v1.3.0 by Ravshan tog\'a</string>
+    <string name="settings_changelog">v1.3: haftaning tungi yulduzi, tabrik matni, kalkulyator tarixi, uy shahri va 7 kunlik ob-havo, oflayn, import rejimlari, yangi sanalarni eksport.</string>
+    <string name="settings_check_update">APK yangilanishini tekshirish</string>
+    <string name="update_check_hint">github.properties yarating (github.properties.example), APK ni qayta yig\'ing va GitHub Releases da e\'lon qiling. Yoki APK ni oila chatiga yuboring.</string>
+    <string name="settings_sync_export_new">Faqat yangi sanalarni eksport</string>
+    <string name="settings_sync_success_export_new">Yangi sanalar fayli tayyor</string>
+    <string name="import_mode_title">Sanalarni qanday import qilamiz?</string>
+    <string name="import_mode_merge">Birlashtirish (hammasini qo\'shish)</string>
+    <string name="import_mode_replace">Mening sanalarimni almashtirish</string>
+    <string name="import_mode_skip">Dublikatlarni o\'tkazib yuborish</string>
+    <string name="theme_navruz">Navro\'z 🌿</string>
+    <string name="theme_new_year">Yangi yil ❄️</string>
+
+    <string name="calc_history_title">Tarix</string>
+    <string name="calc_history_clear">Tozalash</string>
+    <string name="calc_copied">Nusxa olindi</string>
+    <string name="cal_birthday_age">%1$d yoshga to\'ladi</string>
+
+    <string name="family_star_of_week">⭐ Haftaning tungi yulduzi</string>
+    <string name="family_star_empty">Yaqin 7 kun ichida tungi yulduz yo\'q — ro\'yxat pastda.</string>
+    <string name="greeting_share">Tabrik yuborish</string>
+    <string name="greeting_today_birthday">Bugun %1$s tug\'ilgan kuni! %2$d yoshga to\'ladi 🎂 Tabriklang!</string>
+    <string name="greeting_today_birthday_no_age">Bugun %1$s tug\'ilgan kuni! 🎂 Tabriklang!</string>
+    <string name="greeting_today_event">Bugun: %1$s (%2$s). Tabriklang!</string>
+    <string name="greeting_upcoming_birthday">%2$d kundan keyin %1$s tug\'ilgan kuni — %3$d yoshga to\'ladi 🎂</string>
+    <string name="greeting_upcoming_event">%2$d kundan keyin: %1$s (%3$s)</string>
+
+    <string name="weather_home_city">Uy shahri</string>
+    <string name="weather_set_home">Uy shahri qilish</string>
+    <string name="weather_forecast_7d">7 kunlik prognoz</string>
+    <string name="weather_offline">Internet yo\'q — saqlangan ma\'lumot</string>
+    <string name="weather_cached">Saqlangan ma\'lumot</string>
+
+    <string name="holiday_new_year">Yangi yil</string>
+    <string name="holiday_women">8-mart</string>
+    <string name="holiday_navruz">Navro\'z</string>
+    <string name="holiday_memory">Xotira kuni</string>
+    <string name="holiday_independence_uz">Mustaqillik kuni</string>
+    <string name="holiday_teachers">O\'qituvchilar kuni</string>
+    <string name="holiday_constitution_uz">Konstitutsiya kuni</string>
+    <string name="holiday_defender">23-fevral</string>
+    <string name="holiday_labor">1-may</string>
+    <string name="holiday_victory">9-may</string>
+    <string name="holiday_russia_day">Rossiya kuni</string>
+    <string name="holiday_unity">Xalq birligi kuni</string>
+    <string name="holiday_constitution_ru">RF Konstitutsiyasi kuni</string>
+
+    <string name="month_1">Yanvar</string>
+    <string name="month_2">Fevral</string>
+    <string name="month_3">Mart</string>
+    <string name="month_4">Aprel</string>
+    <string name="month_5">May</string>
+    <string name="month_6">Iyun</string>
+    <string name="month_7">Iyul</string>
+    <string name="month_8">Avgust</string>
+    <string name="month_9">Sentabr</string>
+    <string name="month_10">Oktabr</string>
+    <string name="month_11">Noyabr</string>
+    <string name="month_12">Dekabr</string>
+
+    <string name="weekday_mon">Du</string>
+    <string name="weekday_tue">Se</string>
+    <string name="weekday_wed">Chor</string>
+    <string name="weekday_thu">Pay</string>
+    <string name="weekday_fri">Jum</string>
+    <string name="weekday_sat">Shan</string>
+    <string name="weekday_sun">Yak</string>
+
+    <string name="days_until">%1$d kundan keyin</string>
+    <string name="days_until_today">Bugun!</string>
+    <string name="age_turns">%1$d yoshga to\'ladi</string>
+</resources>

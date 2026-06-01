@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор | Элегантный дизайн</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 50%, #ffeaa7 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            max-width: 450px;
+            width: 100%;
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            text-align: center;
+            color: #ff6b9d;
+            font-size: 28px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #c44569;
+            font-size: 14px;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .display {
+            background: linear-gradient(135deg, #f8b9d4 0%, #fdd7e4 100%);
+            border: none;
+            border-radius: 20px;
+            padding: 25px 20px;
+            font-size: 32px;
+            text-align: right;
+            margin-bottom: 25px;
+            color: #c44569;
+            width: 100%;
+            box-shadow: inset 0 4px 8px rgba(196, 69, 105, 0.15);
+            font-weight: 500;
+            letter-spacing: 1px;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            overflow: hidden;
+        }
+
+        .display span {
+            display: inline-block;
+            animation: digitBounce 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes digitBounce {
+            0% {
+                transform: scale(0) rotate(180deg);
+                opacity: 0;
+                filter: hue-rotate(90deg) brightness(1.5) drop-shadow(0 0 15px rgba(255, 182, 193, 1));
+            }
+            25% {
+                transform: scale(1.3) rotate(90deg);
+                opacity: 1;
+                filter: hue-rotate(45deg) brightness(1.3) drop-shadow(0 0 12px rgba(255, 105, 180, 0.9));
+            }
+            50% {
+                transform: scale(0.8) rotate(0deg);
+                filter: hue-rotate(0deg) brightness(1.1) drop-shadow(0 0 8px rgba(255, 107, 157, 0.7));
+            }
+            65% {
+                transform: scale(1.15) rotate(-5deg);
+                filter: brightness(1.2) drop-shadow(0 0 10px rgba(255, 182, 193, 0.8));
+            }
+            80% {
+                transform: scale(0.95) rotate(3deg);
+                filter: brightness(1.05);
+            }
+            100% {
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+                filter: brightness(1);
+            }
+        }
+
+        .history {
+            background: #fff0f6;
+            border-radius: 15px;
+            padding: 10px 15px;
+            margin-bottom: 20px;
+            min-height: 40px;
+            font-size: 16px;
+            color: #999;
+            text-align: right;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+        }
+
+        button {
+            padding: 18px 10px;
+            font-size: 18px;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .function {
+            background: linear-gradient(135deg, #a29bfe 0%, #fd79a8 100%);
+            color: #fff;
+            font-size: 16px;
+        }
+        
+        .function:hover {
+            background: linear-gradient(135deg, #fd79a8 0%, #a29bfe 100%);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        button:active {
+            animation: buttonPulse 0.4s ease-out;
+        }
+
+        @keyframes buttonPulse {
+            0% {
+                transform: scale(1) rotate(0deg);
+            }
+            25% {
+                transform: scale(0.85) rotate(-5deg);
+            }
+            50% {
+                transform: scale(1.15) rotate(5deg);
+                box-shadow: 0 0 20px rgba(255, 107, 157, 0.8);
+            }
+            75% {
+                transform: scale(0.95) rotate(-2deg);
+            }
+            100% {
+                transform: scale(1) rotate(0deg);
+            }
+        }
+
+        button::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        button:active::after {
+            width: 300px;
+            height: 300px;
+        }
+
+        .number {
+            background: linear-gradient(135deg, #ff9ff3 0%, #feca57 100%);
+            color: #fff;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .number:hover {
+            background: linear-gradient(135deg, #feca57 0%, #ff9ff3 100%);
+        }
+
+        .operator {
+            background: linear-gradient(135deg, #74b9ff 0%, #a29bfe 100%);
+            color: #fff;
+            font-size: 20px;
+        }
+
+        .operator:hover {
+            background: linear-gradient(135deg, #a29bfe 0%, #74b9ff 100%);
+        }
+
+        .equals {
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+            color: #fff;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .equals:hover {
+            background: linear-gradient(135deg, #c44569 0%, #ff6b9d 100%);
+        }
+
+        .clear {
+            background: linear-gradient(135deg, #fab1a0 0%, #ff7675 100%);
+            color: #fff;
+            font-size: 18px;
+        }
+
+        .clear:hover {
+            background: linear-gradient(135deg, #ff7675 0%, #fab1a0 100%);
+        }
+
+        .zero {
+            grid-column: span 2;
+        }
+
+        .decoration {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 24px;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            button {
+                padding: 15px 8px;
+                font-size: 16px;
+            }
+            
+            .function {
+                font-size: 14px;
+            }
+
+            .display {
+                font-size: 28px;
+                padding: 20px 15px;
+            }
+        }
+
+        /* Анимация появления */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .container {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        /* Календарь */
+        .calendar-container {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 50%, #e3f2fd 100%);
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            max-width: 450px;
+            width: 100%;
+            backdrop-filter: blur(10px);
+            animation: fadeIn 0.5s ease-out 0.2s backwards;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .calendar-container::before {
+            content: '🌍';
+            position: absolute;
+            font-size: 350px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.12;
+            z-index: 0;
+            animation: rotateEarth 120s linear infinite;
+            filter: blur(2px);
+        }
+
+        .calendar-container::after {
+            content: '✨';
+            position: absolute;
+            font-size: 40px;
+            top: 20%;
+            right: 10%;
+            opacity: 0.3;
+            z-index: 1;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% {
+                opacity: 0.3;
+                transform: scale(1) rotate(0deg);
+            }
+            50% {
+                opacity: 0.7;
+                transform: scale(1.2) rotate(180deg);
+            }
+        }
+
+        .calendar-container > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes rotateEarth {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        .calendar-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .calendar-year {
+            color: #ff0000;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(255, 0, 0, 0.2);
+        }
+
+        .calendar-month {
+            color: #000000;
+            font-size: 28px;
+            font-family: 'Brush Script MT', cursive, 'Segoe Script', 'Comic Sans MS';
+            font-weight: 600;
+            font-style: italic;
+            letter-spacing: 2px;
+        }
+
+        .calendar-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .calendar-nav button {
+            background: linear-gradient(135deg, #ff9ff3 0%, #feca57 100%);
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 18px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .calendar-nav button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .calendar-weekdays {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+
+        .calendar-weekday {
+            text-align: center;
+            color: #666;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 5px;
+        }
+
+        .calendar-days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 8px;
+        }
+
+        .calendar-day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f8b9d4 0%, #fdd7e4 100%);
+            color: white;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .calendar-day:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(255, 107, 157, 0.4);
+        }
+
+        .calendar-day.empty {
+            background: none;
+            box-shadow: none;
+            cursor: default;
+        }
+
+        .calendar-day.empty:hover {
+            transform: none;
+        }
+
+        .calendar-day.today {
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+            box-shadow: 0 4px 12px rgba(255, 107, 157, 0.6);
+            animation: pulse 2s infinite;
+        }
+
+        .calendar-day.holiday-new-year {
+            background: linear-gradient(135deg, #0984e3 0%, #74b9ff 100%);
+            box-shadow: 0 4px 12px rgba(9, 132, 227, 0.6);
+            font-style: italic;
+            font-weight: 700;
+            transform: rotate(-3deg);
+        }
+
+        .calendar-day.holiday-women {
+            background: linear-gradient(135deg, #fd79a8 0%, #fdcb6e 100%);
+            box-shadow: 0 4px 12px rgba(253, 121, 168, 0.6);
+            font-style: italic;
+            font-weight: 700;
+            transform: rotate(5deg);
+        }
+
+        .calendar-day.holiday-navruz {
+            background: linear-gradient(135deg, #00b894 0%, #55efc4 100%);
+            box-shadow: 0 4px 12px rgba(0, 184, 148, 0.6);
+            font-style: italic;
+            font-weight: 700;
+            transform: rotate(-4deg);
+        }
+
+        .calendar-day.holiday-memory {
+            background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+            box-shadow: 0 4px 12px rgba(108, 92, 231, 0.6);
+            font-style: italic;
+            font-weight: 700;
+            transform: rotate(6deg);
+        }
+
+        .calendar-day.holiday-independence {
+            background: linear-gradient(135deg, #e17055 0%, #fab1a0 100%);
+            box-shadow: 0 4px 12px rgba(225, 112, 85, 0.6);
+            font-style: italic;
+            font-weight: 700;
+            transform: rotate(-5deg);
+        }
+
+        .calendar-day.holiday-teachers {
+            background: linear-gradient(135deg, #fdcb6e 0%, #ffeaa7 100%);
+            box-shadow: 0 4px 12px rgba(253, 203, 110, 0.6);
+            font-style: italic;
+            font-weight: 700;
+            transform: rotate(4deg);
+        }
+
+        .calendar-day.holiday-constitution {
+            background: linear-gradient(135deg, #00cec9 0%, #81ecec 100%);
+            box-shadow: 0 4px 12px rgba(0, 206, 201, 0.6);
+            font-style: italic;
+            font-weight: 700;
+            transform: rotate(-6deg);
+        }
+
+        .holiday-legend {
+            margin-top: 15px;
+            padding: 10px;
+            background: rgba(255, 182, 193, 0.2);
+            border-radius: 15px;
+            font-size: 11px;
+        }
+
+        .holiday-item {
+            display: flex;
+            align-items: center;
+            margin: 5px 0;
+            gap: 8px;
+        }
+
+        .holiday-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 5px;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .calendar-footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        .decorative-stars {
+            position: absolute;
+            font-size: 20px;
+            opacity: 0.4;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+
+        .star-1 {
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .star-2 {
+            top: 15%;
+            right: 8%;
+            animation-delay: 1s;
+        }
+
+        .star-3 {
+            bottom: 15%;
+            left: 10%;
+            animation-delay: 2s;
+        }
+
+        .star-4 {
+            bottom: 20%;
+            right: 5%;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.8;
+                transform: scale(1.3);
+            }
+        }
+
+        .calendar-title {
+            text-align: center;
+            color: #ff6b9d;
+            font-size: 28px;
+            margin-bottom: 15px;
+            font-weight: 600;
+            animation: titleGlow 3s ease-in-out infinite, titleFloat 4s ease-in-out infinite;
+            text-shadow: 0 0 10px rgba(255, 107, 157, 0.5);
+            position: relative;
+        }
+
+        .calendar-title::before {
+            content: '💖';
+            position: absolute;
+            left: -40px;
+            animation: heartBeat 1.5s ease-in-out infinite;
+        }
+
+        .calendar-title::after {
+            content: '💖';
+            position: absolute;
+            right: -40px;
+            animation: heartBeat 1.5s ease-in-out infinite 0.75s;
+        }
+
+        @keyframes heartBeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.3);
+            }
+        }
+
+        @keyframes titleGlow {
+            0%, 100% {
+                color: #ff6b9d;
+                text-shadow: 
+                    0 0 10px rgba(255, 107, 157, 0.5),
+                    0 0 20px rgba(255, 107, 157, 0.3);
+            }
+            50% {
+                color: #fd79a8;
+                text-shadow: 
+                    0 0 20px rgba(255, 107, 157, 0.8),
+                    0 0 30px rgba(255, 107, 157, 0.5),
+                    0 0 40px rgba(255, 107, 157, 0.3);
+            }
+        }
+
+        @keyframes titleFloat {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        @media (max-width: 900px) {
+            body {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>✨ Шабнам ✨</h1>
+        <p class="subtitle">Калькулятор</p>
+        
+        <div class="history" id="history"></div>
+        <div class="display" id="display">0</div>
+        
+        <div class="buttons">
+            <button class="clear" onclick="clearDisplay()">C</button>
+            <button class="clear" onclick="deleteLast()">⌫</button>
+            <button class="function" onclick="applyFunction('sqrt')">√x</button>
+            <button class="function" onclick="applyFunction('cbrt')">∛x</button>
+            <button class="operator" onclick="appendOperator('/')">÷</button>
+            
+            <button class="function" onclick="applyFunction('square')">x²</button>
+            <button class="number" onclick="appendNumber('7')">7</button>
+            <button class="number" onclick="appendNumber('8')">8</button>
+            <button class="number" onclick="appendNumber('9')">9</button>
+            <button class="operator" onclick="appendOperator('*')">×</button>
+            
+            <button class="function" onclick="applyFunction('cube')">x³</button>
+            <button class="number" onclick="appendNumber('4')">4</button>
+            <button class="number" onclick="appendNumber('5')">5</button>
+            <button class="number" onclick="appendNumber('6')">6</button>
+            <button class="operator" onclick="appendOperator('-')">−</button>
+            
+            <button class="function" onclick="applyFunction('inverse')">1/x</button>
+            <button class="number" onclick="appendNumber('1')">1</button>
+            <button class="number" onclick="appendNumber('2')">2</button>
+            <button class="number" onclick="appendNumber('3')">3</button>
+            <button class="operator" onclick="appendOperator('+')">+</button>
+            
+            <button class="function" onclick="applyFunction('factorial')">n!</button>
+            <button class="number" onclick="appendNumber('0')">0</button>
+            <button class="number" onclick="appendNumber('.')">.</button>
+            <button class="operator" onclick="appendOperator('%')">%</button>
+            <button class="function" onclick="appendOperator('^')">xʸ</button>
+            
+            <button class="function" onclick="applyFunction('exp')">eˣ</button>
+            <button class="function" onclick="applyFunction('ln')">ln</button>
+            <button class="function" onclick="applyFunction('log')">log</button>
+            <button class="function" onclick="applyFunction('abs')">|x|</button>
+            <button class="function" onclick="insertPi()">π</button>
+            
+            <button class="function" onclick="applyFunction('sin')">sin</button>
+            <button class="function" onclick="applyFunction('cos')">cos</button>
+            <button class="function" onclick="applyFunction('tan')">tan</button>
+            <button class="function" onclick="insertE()">e</button>
+            <button class="equals" onclick="calculate()">=</button>
+        </div>
+        
+        <div class="decoration">💖 🌸 ✨ 🎀 💕</div>
+    </div>
+
+    <div class="calendar-container">
+        <div class="decorative-stars star-1">⭐</div>
+        <div class="decorative-stars star-2">✨</div>
+        <div class="decorative-stars star-3">💫</div>
+        <div class="decorative-stars star-4">⭐</div>
+        
+        <h1 class="calendar-title">📅 Tentako Календар 🌺</h1>
+        
+        <div class="calendar-header">
+            <div class="calendar-year" id="calendarYear">2025</div>
+            <div class="calendar-month" id="calendarMonth">Ноябрь</div>
+        </div>
+        
+        <div class="calendar-nav">
+            <button onclick="changeMonth(-1)">◀</button>
+            <button onclick="goToToday()">Сегодня</button>
+            <button onclick="changeMonth(1)">▶</button>
+        </div>
+        
+        <div class="calendar-weekdays">
+            <div class="calendar-weekday">Пн</div>
+            <div class="calendar-weekday">Вт</div>
+            <div class="calendar-weekday">Ср</div>
+            <div class="calendar-weekday">Чт</div>
+            <div class="calendar-weekday">Пт</div>
+            <div class="calendar-weekday">Сб</div>
+            <div class="calendar-weekday">Вс</div>
+        </div>
+        
+        <div class="calendar-days" id="calendarDays"></div>
+        
+        <div class="holiday-legend">
+            <div class="holiday-item">
+                <div class="holiday-color" style="background: linear-gradient(135deg, #0984e3 0%, #74b9ff 100%);"></div>
+                <span>1 янв - Новый год</span>
+            </div>
+            <div class="holiday-item">
+                <div class="holiday-color" style="background: linear-gradient(135deg, #fd79a8 0%, #fdcb6e 100%);"></div>
+                <span>8 мар - Женский день</span>
+            </div>
+            <div class="holiday-item">
+                <div class="holiday-color" style="background: linear-gradient(135deg, #00b894 0%, #55efc4 100%);"></div>
+                <span>21 мар - Навруз</span>
+            </div>
+            <div class="holiday-item">
+                <div class="holiday-color" style="background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);"></div>
+                <span>9 май - День памяти</span>
+            </div>
+            <div class="holiday-item">
+                <div class="holiday-color" style="background: linear-gradient(135deg, #e17055 0%, #fab1a0 100%);"></div>
+                <span>1 сен - День независимости</span>
+            </div>
+            <div class="holiday-item">
+                <div class="holiday-color" style="background: linear-gradient(135deg, #fdcb6e 0%, #ffeaa7 100%);"></div>
+                <span>1 окт - День учителя</span>
+            </div>
+            <div class="holiday-item">
+                <div class="holiday-color" style="background: linear-gradient(135deg, #00cec9 0%, #81ecec 100%);"></div>
+                <span>8 дек - День Конституции</span>
+            </div>
+        </div>
+        
+        <div class="calendar-footer">🌸 💕 🦋</div>
+    </div>
+
+    <script>
+        // Калькулятор
+        let currentValue = '0';
+        let previousValue = '';
+        let operation = null;
+        let shouldResetDisplay = false;
+
+        const display = document.getElementById('display');
+        const history = document.getElementById('history');
+
+        function updateDisplay() {
+            // Очищаем дисплей и добавляем каждую цифру с анимацией
+            display.innerHTML = '';
+            const chars = currentValue.split('');
+            
+            chars.forEach((char, index) => {
+                const span = document.createElement('span');
+                span.textContent = char;
+                span.style.animationDelay = `${index * 0.05}s`;
+                display.appendChild(span);
+            });
+        }
+
+        function updateHistory() {
+            if (previousValue && operation) {
+                const operatorSymbol = {
+                    '+': '+',
+                    '-': '−',
+                    '*': '×',
+                    '/': '÷',
+                    '%': '%',
+                    '^': '^'
+                }[operation];
+                history.textContent = `${previousValue} ${operatorSymbol}`;
+            } else {
+                history.textContent = '';
+            }
+        }
+
+        function appendNumber(num) {
+            if (shouldResetDisplay) {
+                currentValue = num;
+                shouldResetDisplay = false;
+            } else {
+                if (currentValue === '0' && num !== '.') {
+                    currentValue = num;
+                } else if (num === '.' && currentValue.includes('.')) {
+                    return;
+                } else {
+                    currentValue += num;
+                }
+            }
+            updateDisplay();
+        }
+
+        function appendOperator(op) {
+            if (operation !== null && !shouldResetDisplay) {
+                calculate();
+            }
+            previousValue = currentValue;
+            operation = op;
+            shouldResetDisplay = true;
+            updateHistory();
+        }
+
+        function calculate() {
+            if (operation === null || shouldResetDisplay) {
+                return;
+            }
+
+            let result;
+            const prev = parseFloat(previousValue);
+            const current = parseFloat(currentValue);
+
+            if (isNaN(prev) || isNaN(current)) {
+                return;
+            }
+
+            switch (operation) {
+                case '+':
+                    result = prev + current;
+                    break;
+                case '-':
+                    result = prev - current;
+                    break;
+                case '*':
+                    result = prev * current;
+                    break;
+                case '/':
+                    result = current !== 0 ? prev / current : 'Ошибка';
+                    break;
+                case '%':
+                    result = prev % current;
+                    break;
+                case '^':
+                    result = Math.pow(prev, current);
+                    break;
+                default:
+                    return;
+            }
+
+            currentValue = result.toString();
+            operation = null;
+            previousValue = '';
+            shouldResetDisplay = true;
+            updateDisplay();
+            updateHistory();
+        }
+
+        function clearDisplay() {
+            currentValue = '0';
+            previousValue = '';
+            operation = null;
+            shouldResetDisplay = false;
+            updateDisplay();
+            updateHistory();
+        }
+
+        function deleteLast() {
+            if (currentValue.length > 1) {
+                currentValue = currentValue.slice(0, -1);
+            } else {
+                currentValue = '0';
+            }
+            updateDisplay();
+        }
+
+        function applyFunction(func) {
+            const num = parseFloat(currentValue);
+            
+            if (isNaN(num)) {
+                return;
+            }
+            
+            let result;
+            
+            switch(func) {
+                case 'sqrt':
+                    result = num >= 0 ? Math.sqrt(num) : 'Ошибка';
+                    break;
+                case 'cbrt':
+                    result = Math.cbrt(num);
+                    break;
+                case 'square':
+                    result = num * num;
+                    break;
+                case 'cube':
+                    result = num * num * num;
+                    break;
+                case 'inverse':
+                    result = num !== 0 ? 1 / num : 'Ошибка';
+                    break;
+                case 'factorial':
+                    if (num < 0 || !Number.isInteger(num)) {
+                        result = 'Ошибка';
+                    } else if (num > 170) {
+                        result = 'Infinity';
+                    } else {
+                        result = 1;
+                        for (let i = 2; i <= num; i++) {
+                            result *= i;
+                        }
+                    }
+                    break;
+                case 'exp':
+                    result = Math.exp(num);
+                    break;
+                case 'ln':
+                    result = num > 0 ? Math.log(num) : 'Ошибка';
+                    break;
+                case 'log':
+                    result = num > 0 ? Math.log10(num) : 'Ошибка';
+                    break;
+                case 'abs':
+                    result = Math.abs(num);
+                    break;
+                case 'sin':
+                    result = Math.sin(num * Math.PI / 180); // градусы
+                    break;
+                case 'cos':
+                    result = Math.cos(num * Math.PI / 180); // градусы
+                    break;
+                case 'tan':
+                    result = Math.tan(num * Math.PI / 180); // градусы
+                    break;
+                default:
+                    return;
+            }
+            
+            currentValue = typeof result === 'number' ? result.toFixed(8).replace(/\.?0+$/, '') : result;
+            shouldResetDisplay = true;
+            updateDisplay();
+        }
+
+        function insertPi() {
+            currentValue = Math.PI.toString();
+            shouldResetDisplay = true;
+            updateDisplay();
+        }
+
+        function insertE() {
+            currentValue = Math.E.toString();
+            shouldResetDisplay = true;
+            updateDisplay();
+        }
+
+        // Поддержка клавиатуры
+        document.addEventListener('keydown', (e) => {
+            if (e.key >= '0' && e.key <= '9' || e.key === '.') {
+                appendNumber(e.key);
+            } else if (e.key === '+' || e.key === '-' || e.key === '*' || e.key === '/') {
+                appendOperator(e.key);
+            } else if (e.key === 'Enter' || e.key === '=') {
+                calculate();
+            } else if (e.key === 'Escape') {
+                clearDisplay();
+            } else if (e.key === 'Backspace') {
+                deleteLast();
+            } else if (e.key === '%') {
+                appendOperator('%');
+            }
+        });
+
+        // Календарь
+        let currentDate = new Date();
+        const monthNames = [
+            'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь',
+            'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'
+        ];
+
+        // Праздники Узбекистана
+        const holidays = {
+            '0-1': 'holiday-new-year',        // 1 января - Новый год
+            '2-8': 'holiday-women',           // 8 марта - Женский день
+            '2-21': 'holiday-navruz',         // 21 марта - Навруз
+            '4-9': 'holiday-memory',          // 9 мая - День памяти
+            '8-1': 'holiday-independence',    // 1 сентября - День независимости
+            '9-1': 'holiday-teachers',        // 1 октября - День учителя
+            '11-8': 'holiday-constitution'    // 8 декабря - День Конституции
+        };
+
+        function renderCalendar() {
+            const year = currentDate.getFullYear();
+            const month = currentDate.getMonth();
+            
+            document.getElementById('calendarYear').textContent = year;
+            document.getElementById('calendarMonth').textContent = monthNames[month];
+            
+            const firstDay = new Date(year, month, 1);
+            const lastDay = new Date(year, month + 1, 0);
+            const daysInMonth = lastDay.getDate();
+            const startingDayOfWeek = firstDay.getDay() === 0 ? 6 : firstDay.getDay() - 1;
+            
+            const calendarDays = document.getElementById('calendarDays');
+            calendarDays.innerHTML = '';
+            
+            // Пустые дни
+            for (let i = 0; i < startingDayOfWeek; i++) {
+                const emptyDay = document.createElement('div');
+                emptyDay.className = 'calendar-day empty';
+                calendarDays.appendChild(emptyDay);
+            }
+            
+            // Дни месяца
+            const today = new Date();
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dayElement = document.createElement('div');
+                dayElement.className = 'calendar-day';
+                dayElement.textContent = day;
+                
+                // Проверка на сегодняшний день
+                if (year === today.getFullYear() && 
+                    month === today.getMonth() && 
+                    day === today.getDate()) {
+                    dayElement.classList.add('today');
+                } else {
+                    // Проверка на праздник
+                    const holidayKey = `${month}-${day}`;
+                    if (holidays[holidayKey]) {
+                        dayElement.classList.add(holidays[holidayKey]);
+                    }
+                }
+                
+                calendarDays.appendChild(dayElement);
+            }
+        }
+
+        function changeMonth(direction) {
+            currentDate.setMonth(currentDate.getMonth() + direction);
+            renderCalendar();
+        }
+
+        function goToToday() {
+            currentDate = new Date();
+            renderCalendar();
+        }
+
+        // Инициализация календаря
+        renderCalendar();
+    </script>
+</body>
+</html>
+

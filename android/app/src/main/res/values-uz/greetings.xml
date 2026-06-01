@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="greeting_bday_child_today">
+        <item>🎂 Tug\'ilgan kuning bilan, %1$s! Senga allaqachon %2$d — zo\'rsan! 🌟</item>
+        <item>🎉 Ura, %1$s! Bugun %2$d yosh! Tort va kulgu bo\'lsin!</item>
+        <item>🎈 %1$s, %2$d yosh bilan tabriklaymiz! O\'yinlar va quvonch!</item>
+        <item>✨ Bayraming bilan, %1$s! %2$d yosh — yulduzimizsan!</item>
+    </string-array>
+    <string-array name="greeting_bday_teen_today">
+        <item>🎂 Tug\'ilgan kuning bilan, %1$s! %2$d yosh — orzular ro\'yob bo\'lsin! 🚀</item>
+        <item>🎉 %1$s, %2$d yosh! Omad va zoʻr lahzalar!</item>
+        <item>✨ Tabriklaymiz, %1$s! %2$d yosh — oldinda juda ko\'p narsa bor!</item>
+        <item>🔥 %1$s, bayraming bilan! %2$d yosh — o\'zing bo\'l va porla!</item>
+    </string-array>
+    <string-array name="greeting_bday_young_today">
+        <item>🎂 Tug\'ilgan kuning bilan, %1$s! %2$d yosh — baxt va muvaffaqiyat!</item>
+        <item>🎉 %1$s, %2$d yosh bilan tabriklaymiz! Har kun quvonchli bo\'lsin!</item>
+        <item>✨ %1$s, bayraming bilan! %2$d yosh — rejalar amalga oshsin!</item>
+        <item>💐 %1$s, tabriklaymiz! Sog\'liq va iliq kayfiyat!</item>
+    </string-array>
+    <string-array name="greeting_bday_adult_today">
+        <item>🎂 Aziz %1$s! Tug\'ilgan kuning bilan! %2$d yosh — sog\'liq va tinchlik!</item>
+        <item>🎉 %1$s, %2$d yosh bilan tabriklaymiz! Uyda osoyishtalik bo\'lsin!</item>
+        <item>💐 %1$s, bayraming bilan! Orzularing ro\'yob bo\'lsin!</item>
+        <item>✨ %1$s, baxtli tug\'ilgan kun! %2$d yosh — faqat yaxshi yangiliklar!</item>
+    </string-array>
+    <string-array name="greeting_bday_senior_today">
+        <item>🎂 Hurmatli %1$s! Tug\'ilgan kuning bilan! %2$d yosh — sog\'liq va uzoq umr!</item>
+        <item>💐 %1$s, %2$d yosh bilan tabriklaymiz! Yoningizda mehribonlik bo\'lsin!</item>
+        <item>🌸 %1$s, bayram kayfiyati! %2$d yosh — donolik va quvonch!</item>
+        <item>✨ %1$s, tabriklaymiz! %2$d yosh — mehr-muhabbatingiz uchun rahmat!</item>
+    </string-array>
+    <string-array name="greeting_bday_unknown_today">
+        <item>🎂 Tug\'ilgan kuning bilan, %1$s! Kun issiq va quvonchli bo\'lsin!</item>
+        <item>🎉 %1$s, tabriklaymiz! Baxt va sog\'liq!</item>
+        <item>✨ %1$s, bayraming bilan! Yaxshi tilaklar!</item>
+        <item>💐 %1$s, tabriklaymiz! Iliqlik va quvonch!</item>
+    </string-array>
+
+    <string-array name="greeting_bday_child_soon">
+        <item>🎈 %2$d kundan keyin %1$s tug\'ilgan kuni — %3$d yosh! Syurpriz tayyorlaymiz! 🎂</item>
+        <item>🎉 Tez orada %1$s %3$d yoshda! %2$d kun qoldi!</item>
+        <item>✨ %1$s tez orada bayram! %2$d kundan keyin %3$d yosh!</item>
+        <item>🎂 %1$s tug\'ilgan kuniga %2$d kun. %3$d yosh bo\'ladi!</item>
+    </string-array>
+    <string-array name="greeting_bday_teen_soon">
+        <item>🚀 %2$d kundan keyin %1$s %3$d yoshni nishonlaydi!</item>
+        <item>🎉 Tez orada %1$s (%3$d yosh)! %2$d kun qoldi.</item>
+        <item>✨ %1$s tez orada %3$d yoshda! %2$d kun qoldi.</item>
+        <item>🔥 %1$s tug\'ilgan kuniga %2$d kun. %3$d yosh!</item>
+    </string-array>
+    <string-array name="greeting_bday_young_soon">
+        <item>💐 %2$d kundan keyin %1$s — %3$d yosh! Oldindan tabriklang!</item>
+        <item>🎂 Tez orada %1$s %3$d yoshda! %2$d kun qoldi.</item>
+        <item>✨ %1$s tez orada bayram! %2$d kundan keyin %3$d yosh.</item>
+        <item>🎉 %1$s bayramiga %2$d kun. %3$d yosh bo\'ladi!</item>
+    </string-array>
+    <string-array name="greeting_bday_adult_soon">
+        <item>💐 %2$d kundan keyin %1$s — %3$d yosh. Tabriklashni unutmang!</item>
+        <item>🎂 Tez orada %1$s %3$d yoshda! %2$d kun qoldi.</item>
+        <item>✨ %1$s tez orada bayram! %2$d kundan keyin %3$d yosh.</item>
+        <item>🎉 %1$s tug\'ilgan kuniga %2$d kun. %3$d yosh!</item>
+    </string-array>
+    <string-array name="greeting_bday_senior_soon">
+        <item>🌸 %2$d kundan keyin %1$s — %3$d yosh. Iliq tabrik bilan!</item>
+        <item>💐 Tez orada %1$s %3$d yoshda! %2$d kun qoldi.</item>
+        <item>✨ %1$s tez orada bayram! %2$d kundan keyin %3$d yosh.</item>
+        <item>🎂 %1$s tug\'ilgan kuniga %2$d kun. %3$d yosh!</item>
+    </string-array>
+    <string-array name="greeting_bday_unknown_soon">
+        <item>📅 %2$d kundan keyin %1$s tug\'ilgan kuni!</item>
+        <item>🎉 Tez orada %1$s bayrami! %2$d kun qoldi.</item>
+        <item>✨ %1$s tez orada bayram! %2$d kun.</item>
+        <item>💐 %1$s tug\'ilgan kuniga %2$d kun qoldi!</item>
+    </string-array>
+
+    <string-array name="greeting_anniv_today">
+        <item>💍 Bugun bayram: %1$s (%2$s)! Tabriklaymiz!</item>
+        <item>🎉 %1$s — bugun muhim kun (%2$s)!</item>
+        <item>✨ «%1$s» bilan tabriklaymiz! Sana: %2$s.</item>
+        <item>💐 %1$s — bugun! (%2$s)</item>
+        <item>🌟 Bugun nishonlaymiz: %1$s (%2$s).</item>
+    </string-array>
+    <string-array name="greeting_anniv_soon">
+        <item>📅 %3$d kundan keyin: %1$s (%2$s).</item>
+        <item>💍 Tez orada %1$s — %2$s. %3$d kun qoldi.</item>
+        <item>✨ %1$s tez orada (%2$s)! %3$d kun.</item>
+        <item>🎉 «%1$s» bayramiga %3$d kun. (%2$s)</item>
+        <item>💐 Eslatma: %1$s (%2$s) — %3$d kundan keyin.</item>
+    </string-array>
+
+    <string name="greeting_pick_title">Tabrikni tanlang</string>
+    <string name="greeting_pick_subtitle">Yoshga mos · %1$d ta variant</string>
+</resources>

@@ -1,0 +1,73 @@
+# Сборка APK и публикация на GitHub Releases.
+# Запуск: тег v* (например v1.3.0) или вручную Actions → Release APK → Run workflow.
+
+name: Release APK
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Тег релиза (например v1.3.0)"
+        required: true
+        default: "v1.3.0"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+          cache: gradle
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Build debug APK
+        run: ./gradlew :app:assembleDebug --no-daemon -q
+
+      - name: Prepare release asset
+        run: cp android/app/build/outputs/apk/debug/app-debug.apk kalenyator.apk
+
+      - name: Resolve release tag
+        id: meta
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "tag=${{ inputs.tag }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "tag=${GITHUB_REF#refs/tags/}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.meta.outputs.tag }}
+          name: Каленятор ${{ steps.meta.outputs.tag }}
+          files: kalenyator.apk
+          generate_release_notes: true
+          body: |
+            ## Установка
+            1. Скачайте **kalenyator.apk** ниже.
+            2. На телефоне разрешите установку из браузера или файлового менеджера.
+            3. Откройте APK и установите (или обновите поверх старой версии).
+
+            ## Ссылка для кнопки «Проверить обновление» в приложении
+            Постоянная ссылка на последний APK (если в `github.properties` указаны ваш owner и repo):
+
+            `https://github.com/<owner>/<repo>/releases/latest/download/kalenyator.apk`
+
+            Пересоберите APK после заполнения `github.properties` — см. [GITHUB_RELEASES.md](https://github.com/${{ github.repository }}/blob/main/GITHUB_RELEASES.md).
