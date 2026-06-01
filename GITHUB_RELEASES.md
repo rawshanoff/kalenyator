@@ -23,7 +23,7 @@ https://github.com/ВАШ_ЛОГИН/ИМЯ_РЕПО/releases/latest/download/ka
 ## Шаг 1. Репозиторий на GitHub
 
 1. На [github.com](https://github.com) нажмите **New repository**.
-2. Имя, например: `Calculator` (или `Kalenyator`).
+2. Репозиторий этого проекта: [rawshanoff/kalenyator](https://github.com/rawshanoff/kalenyator).
 3. **Public** или **Private** (для семьи часто хватает private + доступ по invite).
 4. **Не** добавляйте README с GitHub, если уже есть локальный проект.
 
