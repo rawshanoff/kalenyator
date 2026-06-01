@@ -1,6 +1,7 @@
 # Android / Gradle
 .gradle/
 build/
+local.properties
 android/.gradle/
 android/local.properties
 android/app/build/
